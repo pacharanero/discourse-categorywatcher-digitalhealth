@@ -1,7 +1,9 @@
-discourse-watch-category-mcneel
+discourse-categorywatcher-digitalhealth
 ======================
 
-A simple plugin that watches a category for all the users in a particular group. Customized for http://discourse.mcneel.com.
+A simple Discourse plugin that watches specific Categories for all the Users in particular Groups.
+Forked from https://github.com/discourse/discourse-watch-category-mcneel by Arpit Jalan of the Discourse team
+Customized for https://discourse.digitalhealth.net by Marcus Baw
 
 License
 =======
