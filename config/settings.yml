@@ -3,5 +3,5 @@ plugins:
     default: true
     client: true
   watch_mute_frequency_hours:
-    default: 1
+    default: 24
     minimum: 1

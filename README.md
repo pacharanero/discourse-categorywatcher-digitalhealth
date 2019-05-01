@@ -1,4 +1,4 @@
-discourse-categorywatcher-digitalhealth
+discourse-watchmute
 ======================
 
 A simple Discourse plugin that watches specific Categories for all the Users in particular Groups.
