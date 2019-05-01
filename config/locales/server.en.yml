@@ -1,0 +1,4 @@
+en:
+  site_settings:
+    watch_mute_enabled: "Enable Watch & Mute plugin"
+    watch_mute_frequency_hours: "Frequency of muting and watching jobs"

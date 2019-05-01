@@ -1,0 +1,7 @@
+plugins:
+  watch_mute_enabled:
+    default: true
+    client: true
+  watch_mute_frequency_hours:
+    default: 1
+    minimum: 1
