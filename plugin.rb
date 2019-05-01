@@ -15,11 +15,11 @@ module ::WatchMute
   WATCHES_MUTES = {
     "nz-ciln" => {
       "watch" => ["nz-network"],
-      "mute" => ["faculty-of-clinical-informatics-open-channel", "open-forum", "public-forum"]
+      "mute" => ["faculty-of-clinical-informatics-open-channel", "open-forum", "public"]
     },
     "nz-dig-leaders" => {
       "watch" => ["nz-network"],
-      "mute" => ["faculty-of-clinical-informatics-open-channel", "open-forum", "public-forum"]
+      "mute" => ["faculty-of-clinical-informatics-open-channel", "open-forum", "public"]
     },
   }
 
