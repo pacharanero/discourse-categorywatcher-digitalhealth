@@ -15,14 +15,14 @@ module ::WatchMute
 
   WATCHES_MUTES = {
     "nz-ciln" => {
-      "nz-network" => :watching_first_post,
+      "nz-forum" => :watching_first_post,
       "faculty-of-clinical-informatics-open-channel" => :muted,
       "open-forum" => :muted,
       "public" => :muted,
       "nz" => :watching_first_post,
       "nz-important" => :watching,
     },
-    "nz-dig-leaders" => {
+    "nz-forum" => {
       "nz-network" => :watching_first_post,
       "faculty-of-clinical-informatics-open-channel" => :muted,
       "open-forum" => :muted,
