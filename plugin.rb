@@ -22,8 +22,8 @@ module ::WatchMute
       "nz" => :watching_first_post,
       "nz-important" => :watching,
     },
-    "nz-forum" => {
-      "nz-network" => :watching_first_post,
+    "nz-dig-leaders" => {
+      "nz-forum" => :watching_first_post,
       "faculty-of-clinical-informatics-open-channel" => :muted,
       "open-forum" => :muted,
       "public" => :muted,
