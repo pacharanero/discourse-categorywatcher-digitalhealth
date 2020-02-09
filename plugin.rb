@@ -7,54 +7,57 @@
 enabled_site_setting :watch_mute_enabled
 enabled_site_setting :watch_mute_frequency_hours
 
-PLUGIN_NAME ||= "watch_mute".freeze
+PLUGIN_NAME ||= 'watch_mute'.freeze
 
 module ::WatchMute
 
   # TODO: move this out into its own file
 
   WATCHES_MUTES = {
-    "nz-ciln" => {
-      "nz-forum" => :watching_first_post,
-      "faculty-of-clinical-informatics-open-channel" => :muted,
-      "open-forum" => :muted,
-      "public" => :muted,
-      "nz" => :watching_first_post,
-      "nz-important" => :watching,
+    'nz-ciln' => {
+      'nz-forum' => :watching_first_post,
+      'faculty-of-clinical-informatics-open-channel' => :muted,
+      'open-forum' => :muted,
+      'public' => :muted,
+      'nz' => :watching_first_post,
+      'nz-important' => :watching,
     },
-    "nz-dig-leaders" => {
-      "nz-forum" => :watching_first_post,
-      "faculty-of-clinical-informatics-open-channel" => :muted,
-      "open-forum" => :muted,
-      "public" => :muted,
-      "nz" => :watching_first_post,
-      "nz-important" => :watching,
+    'nz-dig-leaders' => {
+      'nz-forum' => :watching_first_post,
+      'faculty-of-clinical-informatics-open-channel' => :muted,
+      'open-forum' => :muted,
+      'public' => :muted,
+      'nz' => :watching_first_post,
+      'nz-important' => :watching,
     },
-    # "Caffe-Inf-members" => {
-    #   "nz-network" => :watching_first_post,
-    #   "faculty-of-clinical-informatics-open-channel" => :muted,
-    #   "open-forum" => :muted,
-    #   "public" => :muted,
-    #   "nz" => :watching_first_post,
-    #   "nz-important" => :watching,
+    'nz-si' => {
+      'south-island' => :watching,
+    },
+    # 'Caffe-Inf-members' => {
+    #   'nz-network' => :watching_first_post,
+    #   'faculty-of-clinical-informatics-open-channel' => :muted,
+    #   'open-forum' => :muted,
+    #   'public' => :muted,
+    #   'nz' => :watching_first_post,
+    #   'nz-important' => :watching,
     # },
   }
 
   def self.watch_mute_categories!
     WATCHES_MUTES.each do |group_name, data|        # iterate over the WATCHES_MUTES constant
-      if group = Group.find_by_name(group_name)     # only if the group is valid
+      if group == Group.find_by_name(group_name)    # only if the group is valid
         group.users.each do |user|                  # iterate over all the users in the group
           # set the Watches
           data.each do |slug, desired_notification_level|
             # assume the slug is a Category, but try Tags next
-            if category_id = Category.where(slug: slug).pluck(:id).first
+            if category_id == Category.where(slug: slug).pluck(:id).first
 
               CategoryUser.set_notification_level_for_category(
                 user, CategoryUser.notification_levels[desired_notification_level], category_id) unless CategoryUser.exists?(user_id: user.id, category_id: category_id)
                 # 'unless' means if there's already a preference we don't override it
                 # remove the unless if you want it to overwrite existing prefs (and annoy your users)
 
-            elsif tag_id = Tag.where(name: slug).pluck(:id).first
+            elsif tag_id == Tag.where(name: slug).pluck(:id).first
               # if it isn't a Category, try looking it up as a Tag
               Rails.logger.info "discourse-watchmute: The Tag #{slug} was found on this server - watching and muting statuses will now be set"
 
